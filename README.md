@@ -1,5 +1,38 @@
 [![Unix CI badge](https://github.com/micropython/micropython/actions/workflows/ports_unix.yml/badge.svg)](https://github.com/micropython/micropython/actions?query=branch%3Amaster+event%3Apush) [![STM32 CI badge](https://github.com/micropython/micropython/actions/workflows/ports_stm32.yml/badge.svg)](https://github.com/micropython/micropython/actions?query=branch%3Amaster+event%3Apush) [![Docs CI badge](https://github.com/micropython/micropython/actions/workflows/docs.yml/badge.svg)](https://docs.micropython.org/) [![codecov](https://codecov.io/gh/micropython/micropython/branch/master/graph/badge.svg?token=I92PfD05sD)](https://codecov.io/gh/micropython/micropython)
 
+This is a fork of the MicroPython project to allow deep sleeping and waking
+from the internal real time clock of the Raspberry Pico.
+
+This can be built with the following commands:
+
+```bash
+git clone https://github.com/ghubcoder/micropython-pico-deepsleep.git
+cd micropython-pico-deepsleep/
+make -C mpy-cross/
+git submodule update --init -- lib/pico-sdk
+git submodule update --init -- lib/pico-extras
+git submodule update --init -- lib/tinyusb
+cd ports/rp2sleep
+make -j4
+```
+
+This will create a `firmware.uf2` file which can then be loaded onto your
+Pico in the usual way using the BOOTSEL button.
+
+A precompiled binary can be found [here](https://github.com/ghubcoder/micropython-pico-deepsleep/releases/tag/v1.1-pico-deepsleep).
+
+Example usage:
+
+```python
+import picosleep
+picosleep.seconds(60)
+```
+
+Please see [this](https://ghubcoder.github.io/posts/deep-sleeping-the-pico-micropython/)
+post for more information.
+
+Original readme follows:
+
 The MicroPython project
 =======================
 <p align="center">
