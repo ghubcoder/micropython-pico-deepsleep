@@ -56,3 +56,6 @@
 [submodule "lib/micropython-lib"]
 	path = lib/micropython-lib
 	url = https://github.com/micropython/micropython-lib.git
+[submodule "lib/pico-extras"]
+	path = lib/pico-extras
+	url = https://github.com/raspberrypi/pico-extras.git
