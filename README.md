@@ -5,7 +5,7 @@ This can be built with the following commands:
 
 ```bash
 git clone https://github.com/ghubcoder/micropython-pico-deepsleep.git
-cd micropython/
+cd micropython-pico-deepsleep/
 make -C mpy-cross/
 git submodule update --init -- lib/pico-sdk
 git submodule update --init -- lib/pico-extras
