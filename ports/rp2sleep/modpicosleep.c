@@ -16,7 +16,7 @@ static void sleep_callback(void) {
     return;
 }
 
-static void rtc_sleep_seconds(int8_t seconds_to_sleep) {
+static void rtc_sleep_seconds(uint32_t seconds_to_sleep) {
 
     //Hangs if we attempt to sleep for 1 second....
     //Guard against this and perform a normal sleep
