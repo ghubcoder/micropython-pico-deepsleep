@@ -23,6 +23,11 @@ Example usage:
 
 ```python
 import picosleep
+import time
+
+# Make sure this is present, otherwise the pico won't have control over devices such as GPIO Pins.
+time.sleep(1)
+
 picosleep.seconds(60)
 ```
 
