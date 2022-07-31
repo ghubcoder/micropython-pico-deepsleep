@@ -17,7 +17,7 @@ make -j4
 This will create a `firmware.uf2` file which can then be loaded onto your
 Pico in the usual way using the BOOTSEL button.
 
-A precompiled binary can be found [here](https://github.com/ghubcoder/micropython-pico-deepsleep/releases/tag/v1.0-pico-deepsleep).
+A precompiled binary can be found [here](https://github.com/ghubcoder/micropython-pico-deepsleep/releases/tag/v1.1-pico-deepsleep).
 
 Example usage:
 
