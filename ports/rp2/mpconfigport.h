@@ -148,6 +148,8 @@
 #endif
 #endif
 
+extern const struct _mp_obj_module_t mp_module_picosleep;
+
 #if MICROPY_PY_NETWORK_CYW43
 extern const struct _mp_obj_type_t mp_network_cyw43_type;
 #define MICROPY_HW_NIC_CYW43 \

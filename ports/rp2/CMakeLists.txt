@@ -14,6 +14,12 @@ else()
     set(PICO_SDK_PATH ../../lib/pico-sdk)
 endif()
 
+if (PICO_EXTRAS_PATH_OVERRIDE)
+    set(PICO_EXTRAS_PATH ${PICO_EXTRAS_PATH_OVERRIDE})
+else()
+    set(PICO_EXTRAS_PATH ../../lib/pico-extras)
+endif()
+
 # Use the local tinyusb instead of the one in pico-sdk
 set(PICO_TINYUSB_PATH ${MICROPY_DIR}/lib/tinyusb)
 # Use the local lwip instead of the one in pico-sdk
@@ -62,6 +68,7 @@ string(CONCAT GIT_SUBMODULES "${GIT_SUBMODULES} " lib/tinyusb)
 include(${MICROPY_DIR}/py/py.cmake)
 include(${MICROPY_DIR}/extmod/extmod.cmake)
 include(${PICO_SDK_PATH}/pico_sdk_init.cmake)
+include(pico_extras_import.cmake)
 
 # Define the top-level project
 project(${MICROPY_TARGET})
@@ -116,6 +123,7 @@ set(MICROPY_SOURCE_PORT
     machine_uart.c
     machine_wdt.c
     main.c
+    modpicosleep.c
     modmachine.c
     modrp2.c
     modutime.c
@@ -145,6 +153,7 @@ set(MICROPY_SOURCE_QSTR
     ${PROJECT_SOURCE_DIR}/machine_timer.c
     ${PROJECT_SOURCE_DIR}/machine_uart.c
     ${PROJECT_SOURCE_DIR}/machine_wdt.c
+    ${PROJECT_SOURCE_DIR}/modpicosleep.c
     ${PROJECT_SOURCE_DIR}/modmachine.c
     ${PROJECT_SOURCE_DIR}/modrp2.c
     ${PROJECT_SOURCE_DIR}/moduos.c
@@ -168,6 +177,8 @@ set(PICO_SDK_COMPONENTS
     hardware_pwm
     hardware_regs
     hardware_rtc
+    hardware_rosc
+    hardware_sleep
     hardware_spi
     hardware_structs
     hardware_sync
@@ -180,6 +191,7 @@ set(PICO_SDK_COMPONENTS
     pico_bootrom
     pico_multicore
     pico_platform
+    pico_runtime
     pico_stdio
     pico_stdlib
     pico_sync
